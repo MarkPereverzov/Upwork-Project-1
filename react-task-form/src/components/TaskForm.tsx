@@ -18,11 +18,10 @@ interface TaskFormProps {
 const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [taskCounter, setTaskCounter] = useState(1); // Счётчик для задач
-
+  const [taskCounter, setTaskCounter] = useState(1);
   const addTask = () => {
     setTasks([...tasks, { id: taskCounter, output: "", input: "" }]);
-    setTaskCounter(taskCounter + 1); // Увеличиваем счётчик на 1
+    setTaskCounter(taskCounter + 1);
   };
 
   const updateTask = (id: number, field: "output" | "input", value: string) => {
@@ -52,7 +51,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
       <Card title="Tell us about yourself" style={{ width: 600, padding: "20px" }}>
         {tasks.map((task) => (
           <div key={task.id} style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
-            <span>{task.id}. I create the </span> {/* Используем правильную нумерацию */}
+            <span>{task.id}. I create the </span>
             <Select
               value={task.output}
               onChange={(value) => updateTask(task.id, "output", value)}
