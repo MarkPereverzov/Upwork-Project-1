@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const handleTaskSubmit = (tasks: { id: number; output: string; input: string }[]) => {
     const payload = { ...userData, tasks };
     
-    fetch("https://api.example.com/submit", {
+    fetch("http://localhost:5173", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
